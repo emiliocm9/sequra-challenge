@@ -42,9 +42,9 @@ class Order < ApplicationRecord
   private
 
   def calculate_fee_amount_cents
-    return (0.001 * amount.to_f).round(2) * 100 if amount_cents < 50_00
-    return (0.0095 * amount.to_f).round(2) * 100 if amount_cents < 300_00
+    return (0.001 * amount_cents).round(2) * 100 if amount_cents < 50_00
+    return (0.0095 * amount_cents).round(2) * 100 if amount_cents < 300_00
 
-    (0.0085 * amount.to_f).round(2) * 100
+    (0.0085 * amount_cents).round(2) * 100
   end
 end
